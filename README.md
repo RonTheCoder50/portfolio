@@ -1,16 +1,83 @@
-# React + Vite
+🚀 Portfolio Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A personal portfolio website built to showcase my projects, skills, and experience as a Frontend / React Developer.
 
-Currently, two official plugins are available:
+🌐 Live Demo:
+👉 https://portfolio-lemon-five-46.vercel.app
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🛠 Tech Stack
 
-## React Compiler
+⚛️ React.js
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+⚡ Vite
 
-## Expanding the ESLint configuration
+🎨 Tailwind CSS
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+🧩 JavaScript (ES6+)
+
+🌐 HTML5 & CSS3
+
+🚀 Vercel (Deployment)
+
+✨ Features
+
+Responsive design (mobile & desktop friendly)
+
+Clean and minimal UI
+
+Smooth in-page navigation
+
+Projects & skills showcase
+
+Fast build and optimized performance with Vite
+
+Deployed with GitHub → Vercel CI/CD
+
+📂 Project Structure
+├── public/
+│ └── img_1.jpeg
+├── src/
+│ ├── assets/
+│ ├── components/
+│ └── App.jsx
+├── package.json
+└── README.md
+
+⚙️ Getting Started (Local Setup)
+
+Clone the repository:
+
+git clone https://github.com/your-username/your-repo-name.git
+cd your-repo-name
+
+Install dependencies:
+
+npm install
+
+Run the project:
+
+npm run dev
+
+Build for production:
+
+npm run build
+
+🚀 Deployment
+
+This project is deployed using Vercel.
+
+Every push to the main branch automatically triggers a new deployment.
+
+👤 Author
+
+Rohan Vaybhase
+Frontend / React Developer
+📍 Mumbai, India
+
+GitHub: https://github.com/RonTheCoder50
+
+Portfolio: https://portfolio-lemon-five-46.vercel.app
+
+📌 Note
+
+This portfolio is continuously improving as I learn new technologies and build more projects.
