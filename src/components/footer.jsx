@@ -20,12 +20,14 @@ export default function FooterSection() {
                 link={'https://github.com/RonTheCoder50'}
             />
 
-            <FootBox 
-                icon={FaRegFileAlt} 
-                value={'Resume'} 
-                color={'#3BACB8'}
-                link={'#'}
-            />
+            <span style={{fontFamily: 'poppins, sans-serif'}} className="flex items-center gap-2 text-base md:text-lg tracking-wide font-normal group">
+                <FaRegFileAlt color="#3BACB8"/>
+                <a  href="/resume_1.pdf" 
+                    download={'/resume_1.pdf'}
+                    className="group-hover:underline underline-offset-2 cursor-pointer">
+                    Download Resume
+                </a>
+            </span>
 
             <FootBox 
                 icon={FaWhatsapp} 
