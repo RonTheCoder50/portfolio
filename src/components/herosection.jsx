@@ -27,9 +27,17 @@ export function HeroSection() {
                     Hello, I'M Ron 👋
                 </p>
 
-                <p className="tracking-wider text-balance sm:text-lg md:text-xl text-gray-600 font-light underline underline-offset-2">
-                    Frontend/Software Developer! 
-                </p>
+                <div className='flex items-center gap-3'>
+                    <p className="tracking-wider text-balance sm:text-lg md:text-xl text-gray-600 font-light underline underline-offset-2">
+                        Frontend/Software Developer! 
+                    </p>
+
+                    <p className='text-base md:text-xl flex flex-row-reverse items-center gap-1.5'>
+                        <span className='animate-pulse'>(Open To Work) </span>
+                        <span className='h-1 w-1 rounded-full bg-sky-600 mb-1 animate-ping'></span>
+                    </p>
+
+                </div>
 
                 <p  style={{fontFamily: "Poppins, sans-serif"}}
                     className="text-sm lg:text-base tracking-normal opacity-90 font-medium mt-2 leading-6"
@@ -50,7 +58,7 @@ export function SkillSection() {
                 Skills
             </p>
 
-            <div className="grid grid-cols-3 md:grid-cols-4 gap-4 md:gap-6">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 md:gap-6">
                 <Box icon={FaHtml5} value={'HTML'} color={"#e34c26"}/>
                 <Box icon={FaCss3} value={'CSS'} color={"#264de4"}/>
                 <Box icon={FaJs} value={'JS'} color={"#f0db4f"}/>
@@ -67,9 +75,9 @@ export function SkillSection() {
 
 function Box({ icon: Icon, value, color }) {
     return (
-        <div className="flex justify-center items-center gap-4 text-sm sm:text-base tracking-wide py-2 px-3 border border-sky-300 font-medium hover:shadow-xl/10 shadow-sky-200 hover:rounded-sm hover:border-sky-500 transition-all delay-75 duration-100 ease-linear overflow-hidden">
+        <div className="flex justify-center items-center gap-2 sm:gap-4 tracking-wide py-2 px-3 border border-sky-300 font-medium hover:shadow-xl/10 shadow-sky-200 hover:rounded-sm hover:border-sky-500 transition-all delay-75 duration-100 ease-linear overflow-hidden">
             <Icon size={20} color={color}/>
-            <span>{ value }</span>
+            <span className='text-xs sm:text-base'>{ value }</span>
         </div>
     );
 }
@@ -114,7 +122,7 @@ export function ProjectSection() {
 
 function CardComponent({ src, title, text, info, url }) {
     return (
-        <div className='w-[330px] h-128 border-2 border-gray-600 rounded-md flex flex-col justify-between gap-1.5 p-2 hover:shadow-2xl shadow-sky-300 transition-all delay-75 duration-150 ease-linear group'>
+        <div className='w-[330px] h-128 border-2 border-gray-600 rounded-md flex flex-col justify-between gap-1.5 p-2 hover:shadow-lg shadow-sky-300 transition-all delay-75 duration-150 ease-linear group'>
             <img src={src}  className='w-full h-48 object-cover 
             group-hover:scale-101'/>
 
