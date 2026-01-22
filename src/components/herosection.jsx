@@ -98,6 +98,7 @@ export function ProjectSection() {
                     text={'An E-Commerce site that built using only frontend tech! \n but it supports | Cart, Products by Category, Dumy Payment, Product Card, etc.. | '}
                     info={'Html, Css, Js, TailwinCss, Api'}
                     url={'https://github.com/RonTheCoder50/JsProjects/tree/main/e-commerce_site'}
+                    live={'https://ecommerce-site-smoky.vercel.app/'}
                 />
 
                 <CardComponent 
@@ -106,6 +107,7 @@ export function ProjectSection() {
                     text={'Weather App that fetches weather data by user input, & provides forecast & history weather data also, dark mode, error handling, etc.'}
                     info={'React, TailwindCss, WeatherAPI, npm'}
                     url={'https://github.com/RonTheCoder50/react_projects/tree/main/weatherApp'}
+                    live={'https://weather-app-opal-kappa-13.vercel.app/'}
                 />
 
                 <CardComponent 
@@ -114,13 +116,14 @@ export function ProjectSection() {
                     text={'Calculator App with react logic & statemanagement & Tailwindcss Awesome smooth & clear UI'}
                     info={'React, TailwindCss, npm'}
                     url={'https://github.com/RonTheCoder50/react_projects/tree/main/calculatorApp'}
+                    live={'https://calculator-beta-sepia-tkh4cq9owm.vercel.app/'}
                 />
             </div>
         </section>
     );
 }
 
-function CardComponent({ src, title, text, info, url }) {
+function CardComponent({ src, title, text, info, url, live }) {
     return (
         <div className='w-[330px] h-128 border-2 border-gray-600 rounded-md flex flex-col justify-between gap-1.5 p-2 hover:shadow-lg shadow-sky-300 transition-all delay-75 duration-150 ease-linear group'>
             <img src={src}  className='w-full h-48 object-cover 
@@ -142,13 +145,24 @@ function CardComponent({ src, title, text, info, url }) {
                 </p>
             </div>
 
-            <div className='w-30 flex justify-center items-center gap-2 border rounded-sm p-1.5 my-1.5'>
-                <FaGithub size={21} color='#e34c26'/>
-                <a href={url}
-                className='text-base tracking-wide font-medium text-gray-600 hover:underline underline-offset-1 decoration-sky-500 hover:text-gray-500 hover:translate-x-0.5 transition-all delay-75 duration-200 ease-linear'>
-                    GitHub
-                </a>
+            <div className='flex justify-center items-center gap-4'>
+                <div className='w-30 flex justify-center items-center gap-2 border rounded-sm p-1.5 my-1.5'>
+                    <FaGithub size={21} color='#e34c26'/>
+                    <a href={url}
+                    className='text-base tracking-wide font-medium text-gray-600 hover:underline underline-offset-1 decoration-sky-500 hover:text-gray-500 hover:translate-x-0.5 transition-all delay-75 duration-200 ease-linear'>
+                        GitHub
+                    </a>
+                </div>
+
+                <div className='w-30 flex justify-center items-center gap-4 border rounded-sm p-1.5 my-1.5'>
+                    <span className='w-1 h-1 bg-sky-500 rounded-full mt-0.5 animate-ping'></span>
+                    <a href={live}
+                    className='text-base tracking-wider font-medium text-gray-600 hover:underline underline-offset-1 decoration-sky-500 hover:text-gray-500 hover:translate-x-0.5 transition-all delay-75 duration-200 ease-linear cursor-pointer'>
+                        Live
+                    </a>
+                </div>
             </div>
+
         </div>
     );
 }

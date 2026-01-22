@@ -1,5 +1,6 @@
 export default function AboutSection({ theme }) {
-    let color = (theme.trim() === 'light' ? 'text-sky-900' : 'text-gray-100');
+    let color = (theme.trim() === 'light' ? 'text-sky-900' : 'text-white/60');
+    console.log('about -> ', color);
 
     return (
         <div className="flex flex-col gap-4 items-center p-2 my-6">
