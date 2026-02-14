@@ -31,7 +31,7 @@ export default function FooterSection({ theme }) {
                 </span>
             </section>
 
-            <video src="/src/asset/inoskue_vid.mp4" autoPlay loop playsInline muted 
+            <video src="/public/inoskue_vid.mp4" autoPlay loop playsInline muted 
             className={`absolute rounded-t-3xl w-full h-full z-0 object-cover ${theme === 'light' ? 'opacity-75' : 'opacity-50'}`}></video>
         </section>
     );
