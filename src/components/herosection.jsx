@@ -4,11 +4,16 @@ import {
     FaJs, 
     FaReact, 
     FaGithub, 
-    FaJava, 
+    FaJava
 } from 'react-icons/fa'
+
+import { BsFiletypeSql } from "react-icons/bs";
+import { GrMysql } from "react-icons/gr";
 
 import { SiTailwindcss } from "react-icons/si";
 import { CgDebug } from "react-icons/cg";
+
+import { useState } from 'react';
 
 export function HeroSection() {
     return (
@@ -29,7 +34,7 @@ export function HeroSection() {
 
                 <div className='flex items-center gap-3'>
                     <p className="tracking-wider text-balance sm:text-lg md:text-xl text-gray-600 font-light underline underline-offset-2">
-                        Frontend/Software Developer! 
+                        Aspiring Software / Java FullStack Devlopment! 
                     </p>
 
                     <p className='text-base md:text-xl flex flex-row-reverse items-center gap-1.5'>
@@ -67,6 +72,8 @@ export function SkillSection() {
                 <Box icon={FaGithub} value={'GitHub'} color={'#e34c26'}/>
                 <Box icon={FaJava} value={'JAVA'} color={'#E04A4A'}/>
                 <Box icon={CgDebug} value={'Debugging'} color={'#416594'}/>
+                <Box icon={BsFiletypeSql} value={"SQL"}  color={'dark-blue'}/>
+                <Box icon={GrMysql} value={"MySQL"} color={'#109EAD'}/>
                 {/* <Box /> */}
             </div>
         </section>
@@ -82,21 +89,46 @@ function Box({ icon: Icon, value, color }) {
     );
 }
 
-export function ProjectSection() {
+export function ProjectSection({ theme }) {
+    const [isToggle, setIsToggle] = useState(false);
+
+    function handleToggle() {
+        setIsToggle(!isToggle);
+    }
+
     return (
         <section
             style={{fontFamily: "Poppins, sans-serif"}} 
-            className='flex flex-col justify-start gap-4 p-2'>
-            <p id='projects' className="text-xl md:text-3xl font-medium tracking-wide underline underline-offset-2 decoration-gray-400 p-2">
+            className='flex flex-col justify-start gap-5 p-2 w-full items-center'>
+            
+            <p id='projects' className="text-xl md:text-3xl font-medium tracking-wide underline underline-offset-2 decoration-gray-400 p-2 text-start">
                 Projects
             </p>
 
-            <div className='flex flex-col sm:flex-row flex-wrap gap-4 md:gap-6 items-stretch '>
+            <div className={`flex items-center gap-6 p-1 text-sm md:text-base lg:text-lg 
+                ${theme === 'light' ? 'text-black/90' : 'text-white/90'}`}>
+
+                <p onClick={() => handleToggle()} 
+                  className={`border py-2 px-3 hover:rounded-lg transition-all delay-75 duration-200 ease-in cursor-pointer
+                  ${!isToggle ? "bg-black/90 text-white" : ""}`}>
+                    Frontend Projects                    
+                </p>
+
+                <p  onClick={() => handleToggle()}
+                    className={`border py-2 px-3 hover:rounded-lg transition-all delay-75 duration-200 ease-in cursor-pointer
+                    ${isToggle ? "bg-black/90 text-white" : ""} `}>
+                    Backend Projects
+                </p>
+            </div>
+
+            {/* frontend - projects */}
+            <div className={`flex flex-col sm:flex-row flex-wrap gap-4 md:gap-6 items-stretch 
+                ${isToggle ? "hidden" : "flex"}`}>
                 <CardComponent 
                     src={'https://static.vecteezy.com/system/resources/previews/005/051/924/original/ecommerce-website-online-store-concept-vector.jpg'} 
                     title={'E-Commerce Site'} 
                     text={'An E-Commerce site that built using only frontend tech! \n but it supports | Cart, Products by Category, Dumy Payment, Product Card, etc.. | '}
-                    info={'Html, Css, Js, TailwinCss, Api'}
+                    info={'React, TailwinCss, Api'}
                     url={'https://github.com/RonTheCoder50/JsProjects/tree/main/e-commerce_site'}
                     live={'https://ecommerce-site-smoky.vercel.app/'}
                 />
@@ -117,6 +149,30 @@ export function ProjectSection() {
                     info={'React, TailwindCss, npm'}
                     url={'https://github.com/RonTheCoder50/react_projects/tree/main/calculatorApp'}
                     live={'https://calculator-beta-sepia-tkh4cq9owm.vercel.app/'}
+                />
+            </div>
+
+            {/* backend - projects */}
+            <div className={`flex flex-col sm:flex-row flex-wrap gap-4 md:gap-6 items-stretch 
+                ${!isToggle ? "hidden" : "flex"}`}>
+                <CardComponent 
+                    src={'/project_img2.png'}
+                    title={'Student Management System'}
+                    text={'A Student-Management-System project that gives backend vibe, \n it is a CRUD Operation based project which can track a list of student details. '
+                    }
+                    info={'Java, JDBC, SQL + MySQL'}
+                    url={'https://github.com/RonTheCoder50/Backend_Projects/tree/main/studentManagement_system'}
+                    live={'#'}
+                />
+
+                <CardComponent 
+                    src={'/project_img3.png'}
+                    title={'Bank Management System'}
+                    text={'A Bank Management System project is an CLI Application based project, which handles accounts, transactions, user etc & also support crud operations & gives online bank system vibe'
+                    }
+                    info={'Java, JDBC, SQL + MySQL'}
+                    url={'https://github.com/RonTheCoder50/Backend_Projects/tree/main/Bank_Management_System'}
+                    live={'#'}
                 />
             </div>
         </section>
@@ -154,13 +210,15 @@ function CardComponent({ src, title, text, info, url, live }) {
                     </a>
                 </div>
 
-                <div className='w-30 flex justify-center items-center gap-4 border rounded-sm p-1.5 my-1.5'>
-                    <span className='w-1 h-1 bg-sky-500 rounded-full mt-0.5 animate-ping'></span>
-                    <a href={live}
-                    className='text-base tracking-wider font-medium text-gray-600 hover:underline underline-offset-1 decoration-sky-500 hover:text-gray-500 hover:translate-x-0.5 transition-all delay-75 duration-200 ease-linear cursor-pointer'>
-                        Live
-                    </a>
-                </div>
+                {live !== '#' &&
+                    <div className='w-30 flex justify-center items-center gap-4 border rounded-sm p-1.5 my-1.5'>
+                        <span className='w-1 h-1 bg-sky-500 rounded-full mt-0.5 animate-ping'></span>
+                        <a href={live}
+                        className='text-base tracking-wider font-medium text-gray-600 hover:underline underline-offset-1 decoration-sky-500 hover:text-gray-500 hover:translate-x-0.5 transition-all delay-75 duration-200 ease-linear cursor-pointer'>
+                            Live
+                        </a>
+                    </div>
+                }
             </div>
 
         </div>

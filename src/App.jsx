@@ -48,9 +48,9 @@ function ManageComponents() {
       />
       
       <section className={`w-full flex flex-col items-center mt-0 sm:mt-0 gap-20 p-2`}> 
-        <HeroSection />
+        <HeroSection/>
         <SkillSection />
-        <ProjectSection />
+        <ProjectSection theme={theme}/>
         <AboutSection theme={theme}/>
         <FooterSection theme={theme} />
       </section>
