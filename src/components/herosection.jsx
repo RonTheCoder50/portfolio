@@ -195,7 +195,7 @@ export function ProjectSection({ theme }) {
                 ${isToggle !== 2 ? "hidden" : "flex"}    
             `}>
                 <CardComponent 
-                    src={'/public/blog2.jpg'}
+                    src={'/blog2.jpg'}
                     title={'Blog Platform'}
                     text={'a Blog platform is a fullstack web-project, with Authentication & RoleBased Access it provides services to create and manage own posts and interact with others, extra features {like, comment, bookmark}'}
                     info={'React, SpringBoot, Mysql, TailwindCSS'}
