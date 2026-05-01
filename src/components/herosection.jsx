@@ -10,7 +10,7 @@ import {
 import { BsFiletypeSql } from "react-icons/bs";
 import { GrMysql } from "react-icons/gr";
 
-import { SiTailwindcss } from "react-icons/si";
+import { SiTailwindcss, SiSpringboot } from "react-icons/si";
 import { CgDebug } from "react-icons/cg";
 
 import { useState } from 'react';
@@ -29,12 +29,12 @@ export function HeroSection() {
                 className="flex flex-col gap-2 tracking-wide font-['Poppins']"
             >
                 <p className="text-2xl lg:text-5xl font-semibold">
-                    Hello, I'M Ron 👋
+                    Hello, I'M ROHAN 👋
                 </p>
 
                 <div className='flex items-center gap-3'>
                     <p className="tracking-wider text-balance sm:text-lg md:text-xl text-gray-600 font-light underline underline-offset-2">
-                        Aspiring Software / Java FullStack Devlopment! 
+                        Java FullStack Developer!
                     </p>
 
                     <p className='text-base md:text-xl flex flex-row-reverse items-center gap-1.5'>
@@ -71,10 +71,10 @@ export function SkillSection() {
                 <Box icon={SiTailwindcss} value={'TailwindCSS'} color={'#74ABF2'}/>
                 <Box icon={FaGithub} value={'GitHub'} color={'#e34c26'}/>
                 <Box icon={FaJava} value={'JAVA'} color={'#E04A4A'}/>
-                <Box icon={CgDebug} value={'Debugging'} color={'#416594'}/>
+                {/* <Box icon={CgDebug} value={'Debugging'} color={'#416594'}/> */}
                 <Box icon={BsFiletypeSql} value={"SQL"}  color={'dark-blue'}/>
                 <Box icon={GrMysql} value={"MySQL"} color={'#109EAD'}/>
-                {/* <Box /> */}
+                <Box icon={SiSpringboot} value={"Spring Boot"} color={'#00b300'}/>
             </div>
         </section>
     );
@@ -90,10 +90,18 @@ function Box({ icon: Icon, value, color }) {
 }
 
 export function ProjectSection({ theme }) {
-    const [isToggle, setIsToggle] = useState(false);
+    const [isToggle, setIsToggle] = useState(0);
 
-    function handleToggle() {
-        setIsToggle(!isToggle);
+    function handleToggle(val) {
+        if(isToggle === val) return;
+
+        if(val === 0) {
+            setIsToggle(0);
+        } else if(val === 1) {
+            setIsToggle(1);
+        } else if(val === 2) {
+            setIsToggle(2);
+        }
     }
 
     return (
@@ -108,22 +116,28 @@ export function ProjectSection({ theme }) {
             <div className={`flex items-center gap-6 p-1 text-sm md:text-base lg:text-lg 
                 ${theme === 'light' ? 'text-black/90' : 'text-white/90'}`}>
 
-                <p onClick={() => handleToggle()} 
+                <p onClick={() => handleToggle(0)} 
                   className={`border py-2 px-3 hover:rounded-lg transition-all delay-75 duration-200 ease-in cursor-pointer
-                  ${!isToggle ? "bg-black/90 text-white" : ""}`}>
+                  ${isToggle === 0 ? "bg-black/90 text-white" : ""}`}>
                     Frontend Projects                    
                 </p>
 
-                <p  onClick={() => handleToggle()}
+                <p  onClick={() => handleToggle(1)}
                     className={`border py-2 px-3 hover:rounded-lg transition-all delay-75 duration-200 ease-in cursor-pointer
-                    ${isToggle ? "bg-black/90 text-white" : ""} `}>
+                    ${isToggle === 1 ? "bg-black/90 text-white" : ""} `}>
                     Backend Projects
+                </p>
+
+                <p  onClick={() => handleToggle(2)}
+                    className={`border py-2 px-3 hover:rounded-lg transition-all delay-75 duration-200 ease-in cursor-pointer
+                    ${isToggle === 2 ? "bg-black/90 text-white" : ""} `}>
+                    Fullstack Projects
                 </p>
             </div>
 
             {/* frontend - projects */}
             <div className={`flex flex-col sm:flex-row flex-wrap gap-4 md:gap-6 items-stretch 
-                ${isToggle ? "hidden" : "flex"}`}>
+                ${isToggle !== 0 ? "hidden" : "flex"}`}>
                 <CardComponent 
                     src={'https://static.vecteezy.com/system/resources/previews/005/051/924/original/ecommerce-website-online-store-concept-vector.jpg'} 
                     title={'E-Commerce Site'} 
@@ -154,7 +168,7 @@ export function ProjectSection({ theme }) {
 
             {/* backend - projects */}
             <div className={`flex flex-col sm:flex-row flex-wrap gap-4 md:gap-6 items-stretch 
-                ${!isToggle ? "hidden" : "flex"}`}>
+                ${isToggle !== 1 ? "hidden" : "flex"}`}>
                 <CardComponent 
                     src={'/project_img2.png'}
                     title={'Student Management System'}
@@ -175,13 +189,27 @@ export function ProjectSection({ theme }) {
                     live={'#'}
                 />
             </div>
+
+            {/* fullstack - projects */}
+            <div className={`flex flex-col sm:flex-row flex-wrap gap-4 md:gap-6 items-stretch
+                ${isToggle !== 2 ? "hidden" : "flex"}    
+            `}>
+                <CardComponent 
+                    src={'/public/blog2.jpg'}
+                    title={'Blog Platform'}
+                    text={'a Blog platform is a fullstack web-project, with Authentication & RoleBased Access it provides services to create and manage own posts and interact with others, extra features {like, comment, bookmark}'}
+                    info={'React, SpringBoot, Mysql, TailwindCSS'}
+                    url={'https://github.com/RonTheCoder50/JavaFullStack_Projects/tree/main/Blog_App'}
+                    live={'#'}
+                />
+            </div>
         </section>
     );
 }
 
 function CardComponent({ src, title, text, info, url, live }) {
     return (
-        <div className='w-[330px] h-128 border-2 border-gray-600 rounded-md flex flex-col justify-between gap-1.5 p-2 hover:shadow-lg shadow-sky-300 transition-all delay-75 duration-150 ease-linear group'>
+        <div className='w-[330px] h-auto border-2 border-gray-600 rounded-md flex flex-col justify-between gap-1.5 p-2 hover:shadow-lg shadow-sky-300 transition-all delay-75 duration-150 ease-linear group'>
             <img src={src}  className='w-full h-48 object-cover 
             group-hover:scale-101'/>
 
