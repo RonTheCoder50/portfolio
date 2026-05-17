@@ -3,7 +3,7 @@
 export default function NavBarComponent({ theme, isDark, sideToggle, handleSideToggle }) {
     let sideBar = "";
     if(sideToggle) {
-        sideBar = "left-2";
+        sideBar = "left-0";
     } else {
         sideBar = "right-[100%]";
     }
@@ -21,10 +21,13 @@ export default function NavBarComponent({ theme, isDark, sideToggle, handleSideT
                 
             {sideToggle &&
                 <ul onClick={() => handleSideToggle()} 
-                className={`absolute top-16 w-full max-w-38 flex flex-col justify-around items-start p-2 gap-2 bg-white/30 z-50 transition-all delay-75 duration-500 ease-in-out shadow-lg 
-                ${sideBar} 
-                ${sideToggle ? 'bg-white/35' : 'bg-gray-400'}`}
-                >
+                className={
+                    `absolute w-full min-h-screen flex flex-col items-start p-1 gap-6 z-50 transition-all delay-75 duration-500 ease-in-out shadow-lg 
+                    ${sideBar} 
+                    ${isDark ? 'bg-black/90' : 'bg-gray-300'}
+                `}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-x-icon lucide-x ml-[95%] mt-3"> <path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+
                     <ListComponent 
                         value={'About'} 
                         link={'#about'} 
@@ -78,7 +81,19 @@ export default function NavBarComponent({ theme, isDark, sideToggle, handleSideT
 
 function ListComponent({ value, link, theme, size }) {
     return (
-        <li onClick={() => window.location.href = link} className={`${theme ? 'hover:bg-gray-500' : 'hover:bg-sky-50'} py-1 px-2 cursor-pointer rounded-md hover:underline decoration-sky-500 transition-all delay-75 duration-150 ease-in-out text-shadow-sm text-shadow-sky-700 ${size}`}>
+        <li onClick={() => window.location.href = link} className={`
+            ${theme ? 'hover:bg-white/20' : 'hover:bg-sky-50'} 
+            cursor-pointer 
+            rounded-md
+            transition-all
+            delay-75
+            duration-150 
+            ease-in-out
+            text-shadow-sm 
+            text-shadow-sky-700 
+            ${size} 
+            mt-2 py-2 pl-7
+        `}>
             {value}
         </li>
     );

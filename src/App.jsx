@@ -11,7 +11,7 @@ export default function App() {
 }
 
 function ManageComponents() {
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState('dark');
   const [isToggle, setIsToggle] = useState(false);
   
 

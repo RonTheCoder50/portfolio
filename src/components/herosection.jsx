@@ -9,10 +9,8 @@ import {
 
 import { BsFiletypeSql } from "react-icons/bs";
 import { GrMysql } from "react-icons/gr";
-
 import { SiTailwindcss, SiSpringboot } from "react-icons/si";
 import { CgDebug } from "react-icons/cg";
-
 import { useState } from 'react';
 
 export function HeroSection() {
