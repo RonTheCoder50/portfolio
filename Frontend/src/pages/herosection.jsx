@@ -80,7 +80,7 @@ export function SkillSection() {
 
 function Box({ icon: Icon, value, color }) {
     return (
-        <div className="flex justify-center items-center gap-2 sm:gap-4 tracking-wide py-2 px-3 border border-sky-300 font-medium hover:shadow-xl/10 shadow-sky-200 hover:rounded-sm hover:border-sky-500 transition-all delay-75 duration-100 ease-linear overflow-hidden">
+        <div className="flex justify-start items-center gap-2 sm:gap-4 tracking-wide py-2 px-3 border border-sky-300 font-medium hover:shadow-xl/10 shadow-sky-200 hover:rounded-sm hover:border-sky-500 transition-all delay-75 duration-100 ease-linear overflow-hidden">
             <Icon size={20} color={color}/>
             <span className='text-xs sm:text-base'>{ value }</span>
         </div>

@@ -1,4 +1,11 @@
 // import { useState } from "react";
+import {
+    Info,
+    AppWindowMac,
+    Binoculars,
+    Award,
+    Activity
+} from 'lucide-react';
 
 export default function NavBarComponent({ theme, isDark, sideToggle, handleSideToggle }) {
     let sideBar = "";
@@ -7,7 +14,7 @@ export default function NavBarComponent({ theme, isDark, sideToggle, handleSideT
     } else {
         sideBar = "right-[100%]";
     }
-
+    
     return (
         <>
             <svg 
@@ -33,6 +40,7 @@ export default function NavBarComponent({ theme, isDark, sideToggle, handleSideT
                         link={'#about'} 
                         theme={isDark} 
                         size={'w-full'}
+                        icon={<Info size={18} />}
                     />
 
                     <ListComponent 
@@ -40,6 +48,7 @@ export default function NavBarComponent({ theme, isDark, sideToggle, handleSideT
                         link={'#projects'} 
                         theme={isDark} 
                         size={'w-full'}
+                        icon={<AppWindowMac size={18} />}
                     />
 
                     <ListComponent 
@@ -47,6 +56,7 @@ export default function NavBarComponent({ theme, isDark, sideToggle, handleSideT
                         link={'https://github.com/RonTheCoder50'} 
                         theme={isDark} 
                         size={'w-full'}
+                        icon={<Binoculars size={18} />}
                     />
 
                     <ListComponent 
@@ -54,6 +64,7 @@ export default function NavBarComponent({ theme, isDark, sideToggle, handleSideT
                         link={'#skills'} 
                         theme={isDark} 
                         size={'w-full'}
+                        icon={<Award size={18} />}
                     />
 
                     <ListComponent 
@@ -61,6 +72,7 @@ export default function NavBarComponent({ theme, isDark, sideToggle, handleSideT
                         link={'#social'} 
                         theme={isDark} 
                         size={'w-full'}
+                        icon={<Activity size={18} />}
                     />
                 </ul>
             }
@@ -73,13 +85,14 @@ export default function NavBarComponent({ theme, isDark, sideToggle, handleSideT
                 <ListComponent value={'Github'} link={'https://github.com/RonTheCoder50'} theme={isDark}/>
                 <ListComponent value={'Skills'} link={'#skills'} theme={isDark}/>
                 <ListComponent value={'Social'} link={'#social'} theme={isDark}/>
+                <ListComponent value={'DM'} link={'#contact'} theme={isDark}/>
                 <ListComponent value={'/>'} link={'#'} theme={isDark}/>
             </ul>
         </>
     );
 }
 
-function ListComponent({ value, link, theme, size }) {
+function ListComponent({ value, link, theme, size, icon }) {
     return (
         <li onClick={() => window.location.href = link} className={`
             ${theme ? 'hover:bg-white/20' : 'hover:bg-sky-50'} 
@@ -92,8 +105,12 @@ function ListComponent({ value, link, theme, size }) {
             text-shadow-sm 
             text-shadow-sky-700 
             ${size} 
-            mt-2 py-2 pl-7
+            mt-2 py-2 px-2 pl-7 md:pl-0
+            flex items-center gap-3
         `}>
+            <span className='mt-0.5'>
+                {icon}
+            </span>
             {value}
         </li>
     );

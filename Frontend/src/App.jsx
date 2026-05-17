@@ -1,10 +1,11 @@
-import NavBarComponent from './components/navbar';
-import AboutSection from './components/about';
-import FooterSection from './components/footer';
+import NavBarComponent from './pages/navbar';
+import AboutSection from './pages/about';
+import FooterSection from './pages/footer';
 import './App.css';
-import { SkillSection, ProjectSection, HeroSection } from './components/herosection';
+import { SkillSection, ProjectSection, HeroSection } from './pages/herosection';
 import { useState } from 'react';
-import ThemeComponent from './components/Theme';
+import ThemeComponent from './pages/Theme';
+import ContactSection from './pages/contact';
 
 export default function App() {
   return <ManageComponents />
@@ -51,7 +52,8 @@ function ManageComponents() {
         <HeroSection/>
         <SkillSection />
         <ProjectSection theme={theme}/>
-        <AboutSection theme={theme}/>
+        {/* <AboutSection theme={theme}/> */}
+        <ContactSection theme={theme} />
         <FooterSection theme={theme} />
       </section>
     </section>
