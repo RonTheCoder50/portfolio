@@ -105,7 +105,7 @@ export function ProjectSection({ theme }) {
     return (
         <section
             style={{fontFamily: "Poppins, sans-serif"}} 
-            className='flex flex-col justify-start gap-5 p-2 w-full items-center'>
+            className='w-full flex flex-col justify-start gap-5 p-2 w-full items-center'>
             
             <p id='projects' className="text-xl md:text-3xl font-medium tracking-wide underline underline-offset-2 decoration-gray-400 p-2 text-start">
                 Projects
@@ -134,7 +134,7 @@ export function ProjectSection({ theme }) {
             </div>
 
             {/* frontend - projects */}
-            <div className={`flex flex-col sm:flex-row flex-wrap gap-4 md:gap-6 items-stretch 
+            <div className={`ml-1flex flex-col sm:flex-row flex-wrap gap-4 md:gap-6 items-stretch 
                 ${isToggle !== 0 ? "hidden" : "flex"}`}>
                 <CardComponent 
                     src={'https://static.vecteezy.com/system/resources/previews/005/051/924/original/ecommerce-website-online-store-concept-vector.jpg'} 

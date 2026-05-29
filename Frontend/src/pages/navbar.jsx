@@ -84,8 +84,7 @@ export default function NavBarComponent({ theme, isDark, sideToggle, handleSideT
                 <ListComponent value={'Projects'} link={'#projects'} theme={isDark}/>
                 <ListComponent value={'Github'} link={'https://github.com/RonTheCoder50'} theme={isDark}/>
                 <ListComponent value={'Skills'} link={'#skills'} theme={isDark}/>
-                <ListComponent value={'Social'} link={'#social'} theme={isDark}/>
-                <ListComponent value={'DM'} link={'#contact'} theme={isDark}/>
+                <ListComponent value={'Social'} link={'#contact'} theme={isDark}/>
                 <ListComponent value={'/>'} link={'#'} theme={isDark}/>
             </ul>
         </>
