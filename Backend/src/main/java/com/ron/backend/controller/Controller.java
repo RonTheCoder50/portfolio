@@ -13,7 +13,6 @@ public class Controller {
     @Autowired
     private MsgService service;
 
-    @CrossOrigin("http://localhost:5173")
     @PostMapping("/contact")
     public ResponseEntity<?> sendMessage(@Valid @RequestBody ContactDto contactDto) {
         return ResponseEntity.status(200).body(service.handleMessage(contactDto));
