@@ -1,42 +1,65 @@
 package com.ron.backend.service;
 
 import com.ron.backend.dto.ContactDto;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.mail.SimpleMailMessage;
-import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+import org.springframework.http.ResponseEntity;
 
 @Service
-@RequiredArgsConstructor
 public class EmailService {
-    private final JavaMailSender mailSender;
+
+    @Value("${BREVO_API_KEY}")
+    private String apiKey;
 
     @Value("${PERSONAL_EMAIL}")
-    private String email;
-
-    public void printEmail() {
-        System.out.println("Email: " + email);
-    }
+    private String personalEmail;
 
     public void sendEmail(ContactDto msg) {
-        SimpleMailMessage mailMessage = new SimpleMailMessage();
 
-        mailMessage.setFrom(email);
-        mailMessage.setTo(email);
+        RestTemplate restTemplate = new RestTemplate();
 
-        mailMessage.setSubject(
-                "New Portfolio message " +
-                        msg.getMessage()
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        headers.set("api-key", apiKey);
+
+        String body = """
+        {
+          "sender": {
+            "name": "Portfolio Contact Form",
+            "email": "%s"
+          },
+          "to": [
+            {
+              "email": "%s"
+            }
+          ],
+          "subject": "New Portfolio Message",
+          "htmlContent": "<h3>New Contact Message</h3><p><b>Name:</b> %s</p><p><b>Email:</b> %s</p><p><b>Message:</b><br>%s</p>"
+        }
+        """.formatted(
+                personalEmail,
+                personalEmail,
+                msg.getName(),
+                msg.getEmail(),
+                msg.getMessage()
         );
 
-        mailMessage.setText(
-                "Name: " + msg.getName() + "\n" +
-                "Email: " + msg.getEmail() + "\n\n" +
-                "Message:\n" + msg.getMessage()
-        );
+        try {
+            HttpEntity<String> request = new HttpEntity<>(body, headers);
 
-        mailSender.send(mailMessage);
+            ResponseEntity<String> response = restTemplate.postForEntity(
+                    "https://api.brevo.com/v3/smtp/email",
+                    request,
+                    String.class
+            );
+
+            System.out.println(response.getBody());
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
     }
-
 }
