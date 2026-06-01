@@ -1,6 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { UserRoundSearch } from "lucide-react";
 import axios from "axios";
+
+const API = import.meta.env.VITE_API_URL;
 
 export default function ContactSection({ theme }) {
     const [info, setInfo] = useState({ 
@@ -20,12 +22,9 @@ export default function ContactSection({ theme }) {
     }
 
     async function handleMsgApiCall() {
-        alert('temporary in process, due to backend deployment!');
-        return;
-
         try {
             setIsLoading(true);
-            const response = await axios.post("http://localhost:8080/contact", info);
+            const response = await axios.post(`${API}/contact`, info);
 
             alert(response?.data, ' ✅');
             setInfo({name: '', email: '', message: ''});
