@@ -1,6 +1,4 @@
 export default function ThemeComponent({ theme, onClick }) {
-  // const [theme, setTheme] = useState('light');
-
   let content;
   if(theme.trim().toLowerCase() === 'light') {
     content = <svg onClick={() => onClick()}

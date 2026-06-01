@@ -1,20 +1,112 @@
-export default function AboutSection({ theme }) {
-    let color = (theme.trim() === 'light' ? 'text-sky-900 bg-gray-200' : 'text-white/60 bg-gray-700');
+export default function AboutSection() {
+    const theme = localStorage.getItem('theme');
 
     return (
-        <div className="flex flex-col gap-4 items-center p-2 my-6">
-            <p id="about" className="text-start text-xl md:text-3xl font-medium tracking-wide underline underline-offset-2 decoration-gray-400 p-2">
-                About
-            </p>
+        <section
+            id="about"
+            className={`
+                w-full
+                py-20
+                px-4
+                flex
+                justify-center
+                ${theme === 'light' ? 'bg-white' : 'bg-zinc-900'}
+            `}
+        >
+            <div className="max-w-4xl w-full flex flex-col gap-8">
+                
+                <div className="flex flex-col gap-2">
+                    <p className="text-sky-500 font-medium tracking-wider uppercase">
+                        About Me
+                    </p>
 
-            <p className={`${color} text-start w-full mx-auto max-w-[90%] lg:max-w-[70%] text-sm md:text-base lg:text-lg tracking-wide font-medium leading-8 font-mono p-4 rounded-md`}>
-                Hello Dear👋, <br /> I'm Really enjoying this Journey it started back from when i bought my life first laptop 17 jan 2024, and then 
-                my journey begins, I learn lot of things in programming such as Java with DSA, it gives me problem solving mindest!, later i start web development  with my own interest that building awesome UI's that i like most, now I'm currently exploring backend technologies to connect my frontend with backend to make an real world problem solving application!!
-            </p>
+                    <h2
+                        className={`
+                            text-3xl
+                            md:text-5xl
+                            font-bold
+                            tracking-tight
+                            ${theme === 'light' ? 'text-zinc-900' : 'text-white'}
+                        `}
+                    >
+                        Full Stack Developer
+                    </h2>
+                </div>
 
-            <p className="font-medium text-lg md:text-xl p-1 mt-14">
-                Thanks ❤️ For Visiting My Portfolio!!
-            </p>
-        </div>
+                <div
+                    className={`
+                        rounded-2xl
+                        border
+                        p-8
+                        leading-8
+                        ${
+                            theme === 'light'
+                                ? 'bg-gray-50 border-gray-200 text-gray-700'
+                                : 'bg-zinc-800 border-zinc-700 text-gray-300'
+                        }
+                    `}
+                >
+                    <p className="text-lg">
+                        Hi, I'm <span className="font-semibold text-sky-600">Rohan</span> 👋
+                    </p>
+
+                    <p className="mt-4">
+                        I'm a final-year Computer Science student passionate about
+                        building modern web applications and solving real-world problems
+                        through software.
+                    </p>
+
+                    <p className="mt-4">
+                        My primary stack includes Java, Spring Boot, React,
+                        MySQL, and REST APIs. I enjoy designing backend systems,
+                        creating responsive user interfaces, and writing clean,
+                        maintainable code.
+                    </p>
+
+                    <p className="mt-4">
+                        I've built projects such as HireTrack, a full-stack job
+                        tracking & Resume analyze (with ATS score & feedback response) platform, and a multi-user Blog Application
+                        featuring authentication, role-based access, and RESTful APIs.
+                    </p>
+
+                    <p className="mt-4">
+                        Currently seeking Software Developer and Java Full Stack
+                        Developer opportunities where I can contribute, learn,
+                        and grow as an engineer.
+                    </p>
+                </div>
+
+                <div className="flex justify-center sm:justify-normal flex-wrap gap-3">
+                    {[
+                        "Java",
+                        "Spring Boot",
+                        "React",
+                        "Tailwind CSS",
+                        "MySQL",
+                        "REST APIs",
+                        "DSA",
+                        "Git",
+                        "GitHub"
+                    ].map((skill) => (
+                        <span
+                            key={skill}
+                            className="
+                                px-4
+                                py-2
+                                rounded-full
+                                bg-sky-500/10
+                                text-sky-500
+                                border
+                                border-sky-500/20
+                                text-sm
+                                tracking-wide
+                            "
+                        >
+                            {skill}
+                        </span>
+                    ))}
+                </div>
+            </div>
+        </section>
     );
 }

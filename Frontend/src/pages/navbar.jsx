@@ -6,6 +6,7 @@ import {
     Award,
     Activity
 } from 'lucide-react';
+import { useNavigate } from 'react-router';
 
 export default function NavBarComponent({ theme, isDark, sideToggle, handleSideToggle }) {
     let sideBar = "";
@@ -92,21 +93,33 @@ export default function NavBarComponent({ theme, isDark, sideToggle, handleSideT
 }
 
 function ListComponent({ value, link, theme, size, icon }) {
+    const navigate = useNavigate();
     return (
-        <li onClick={() => window.location.href = link} className={`
-            ${theme ? 'hover:bg-white/20' : 'hover:bg-sky-50'} 
-            cursor-pointer 
-            rounded-md
-            transition-all
-            delay-75
-            duration-150 
-            ease-in-out
-            text-shadow-sm 
-            text-shadow-sky-700 
-            ${size} 
-            mt-2 py-2 px-2 pl-7 md:pl-0
-            flex items-center gap-3
-        `}>
+        <li 
+            onClick={() => {
+                if(value?.trim() === 'About') {
+                    navigate('/about');
+                    return;
+                }
+                
+                window.location.href = link
+            }} 
+        
+            className={`
+                ${theme ? 'hover:bg-white/20' : 'hover:bg-sky-50'} 
+                cursor-pointer 
+                rounded-md
+                transition-all
+                delay-75
+                duration-150 
+                ease-in-out
+                text-shadow-sm 
+                text-shadow-sky-700 
+                ${size} 
+                mt-2 py-2 px-2 pl-7 md:pl-0
+                flex items-center gap-3
+            `}
+        >
             <span className='mt-0.5'>
                 {icon}
             </span>

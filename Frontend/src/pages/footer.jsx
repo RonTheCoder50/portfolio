@@ -2,11 +2,19 @@ import { RiTwitterXLine } from "react-icons/ri";
 import { FaWhatsapp } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import { FaRegFileAlt } from "react-icons/fa";
+import { IoLogoLinkedin } from "react-icons/io5";
 
 export default function FooterSection({ theme }) {
     return (
         <section className="relative flex flex-col gap-2 w-full min-h-[200px] overflow-hidden"> 
             <section id="social" className="w-full h-full flex flex-col sm:flex-row items-center justify-center gap-10 lg:gap-20 border-t-2 rounded-t-3xl border-gray-400 px-3 py-5 md:py-18 z-50">
+                <FootBox 
+                    icon={IoLogoLinkedin} 
+                    value={'Linkedin'} 
+                    color={'#0077b5'}
+                    link={'https://www.linkedin.com/in/rohan-vaybhase-15661533a/'}
+                />
+
                 <FootBox 
                     icon={RiTwitterXLine} 
                     value={'Twitter'} 
@@ -24,7 +32,7 @@ export default function FooterSection({ theme }) {
                 <span style={{fontFamily: 'poppins, sans-serif'}} className="flex items-center gap-2 text-base md:text-lg tracking-wide font-normal group">
                     <FaRegFileAlt color="#3BACB8"/>
                     <a  href="/resume_1.pdf" 
-                        download={'/resume_1.pdf'}
+                        download={'/rohan-res.pdf'}
                         className="group-hover:underline underline-offset-2 cursor-pointer text-white/80">
                         Resume
                     </a>

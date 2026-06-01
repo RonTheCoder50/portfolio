@@ -2,19 +2,42 @@ import NavBarComponent from './pages/navbar';
 import AboutSection from './pages/about';
 import FooterSection from './pages/footer';
 import './App.css';
-import { SkillSection, ProjectSection, HeroSection } from './pages/herosection';
-import { useState } from 'react';
+import { SkillSection, HeroSection } from './pages/herosection';
+import ProjectSection from './pages/project';
+import { useEffect, useState } from 'react';
 import ThemeComponent from './pages/Theme';
 import ContactSection from './pages/contact';
+import { Routes, Route, BrowserRouter } from 'react-router';
 
 export default function App() {
-  return <ManageComponents />
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path='/'
+          element={<ManageComponents />}
+        />
+
+        <Route 
+          path='/about'
+          element={<AboutSection />}
+        />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 function ManageComponents() {
-  const [theme, setTheme] = useState('dark');
+  const savedTheme = localStorage.getItem('theme');
+  const [theme, setTheme] = useState(
+    savedTheme ? savedTheme : 'dark'
+  );
+  
   const [isToggle, setIsToggle] = useState(false);
   
+  useEffect(() => {
+    localStorage.setItem('theme', theme);
+  }, [theme]);
 
   function handleTheme() {
     setTheme(theme.trim() === 'dark' ? 'light' : 'dark');
