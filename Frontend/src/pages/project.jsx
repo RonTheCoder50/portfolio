@@ -6,11 +6,11 @@ const projects = [
     title: "HireTrack",
     image: "/hiretrack-pfp.png",
     description:
-      "Full-stack job application tracking platform with authentication, application management, resume analyses with ATS and proper feedback, and dashboard analytics.",
-    tech: "React, Spring Boot, MySQL, JWT, Tailwind CSS, Rest Api",
+      "Full-stack web application platform with authentication & role based access, application management, resume analyses with ATS and proper feedback, and dashboard analytics! useful for recruiters & students.",
+    tech: "React, Spring Boot, PostgreSQL, MySQL, JWT, Tailwind CSS, Rest Api",
     github:
       "https://github.com/RonTheCoder50/JavaFullStack_Projects/tree/main/HireTrack",
-    live: "#",
+    live: "https://hiretrack-hazel.vercel.app",
   },
 
   {
