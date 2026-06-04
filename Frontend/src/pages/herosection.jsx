@@ -19,7 +19,7 @@ export function HeroSection() {
             <img 
                 src="/img_1.jpeg"
                 alt="Insouke_image"
-                className="w-50 h-50 md:w-64 md:h-64 rounded-full object-cover opacity-95 border border-blue-400 shadow-xl/30 shadow-sky-300 p-1 hover:shadow-xl/50"
+                className="w-50 h-50 md:w-64 md:h-64 rounded-full object-cover opacity-95 border border-blue-400 shadow-xl/10 shadow-sky-300 p-1 hover:shadow-md"
             />
 
             <div 

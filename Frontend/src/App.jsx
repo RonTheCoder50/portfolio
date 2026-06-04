@@ -47,7 +47,7 @@ function ManageComponents() {
     setIsToggle(!isToggle);
   }
 
-  let themeClass = (theme === 'light' ? 'bg-white text-black' : 'bg-gray-800 text-white/85');
+  let themeClass = (theme === 'light' ? 'bg-white text-black' : 'bg-[#0D1117] text-white/85');
   return (
     <section 
       onClick={
